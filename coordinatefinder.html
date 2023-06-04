@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="design.css" type="text/css">
+    </head>
+    <body>
+        <div id="header">
+            <h1>Coordinate Finder</h1>
+        </div>
+
+        <input type="button" onclick="showcoord()" value="Show Coordinates!">
+        
+        <div id="container">
+            <img src="https://drive.google.com/uc?export=view&id=1rXDndgIZIc1C2J7R-HFH0JrZfCyXQQIy">
+            <div id="dot"></div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script>
+            var x = 0;
+            var y = 0;
+            
+            function showcoord(){
+                alert("x: " + x + "y: " + y);
+            };
+
+            let container = document.getElementById("container");
+
+            container.addEventListener("click", function(event) {
+                let rect = container.getBoundingClientRect();
+                x = event.clientX - rect.left;  // x position within the element.
+                y = event.clientY - rect.top;   // y position within the element.
+                let dot = document.getElementById("dot");
+                var dotx = x-5;
+                var doty = y-5;
+                dot.style.left = dotx + 'px';
+                dot.style.top = doty + 'px';
+            });
+        </script>
+    </body>
+</html>
